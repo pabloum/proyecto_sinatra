@@ -1,6 +1,7 @@
 body {
   background: rgb(48,48,48);
   color: white;
+  font-size: 20px;
   /* text-align: center; */
 }
 
@@ -27,6 +28,18 @@ hr {
 
 form {
   display: inline-block;
+}
+
+.btn {
+  font-size: 20px;
+}
+
+.left-pane-input{
+  width: 100%;
+}
+
+.left-pane-btn {
+  margin-bottom: 28px;
 }
 
 .buttons {
