@@ -26,6 +26,6 @@ post '/find' do
 end
 
 post '/delete' do
-  Tarea.destroy(params[:id].to_i)
+  Tarea.destroy(params[:id])
   redirect '/'
 end
