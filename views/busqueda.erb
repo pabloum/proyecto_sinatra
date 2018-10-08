@@ -1,21 +1,39 @@
-
-
-<% id = @busqueda["id"]  %>
-<% title = @busqueda["title"]  %>
-<% done = @busqueda["done"] %>
-<% created_at = @busqueda["created_at"] %>
-<% updated_at = @busqueda["updated_at"] %>
-<%= "Título: #{title}" %>
-<br>
-<%= "ID: #{id}" %>
-<br>
-<%= "Estado: #{done}" %>
-<br>
-<%= "Fecha creación: #{created_at}" %>
-<br>
-<%= "Fecha de actualización: #{updated_at}" %>
-<br>
-<br>
+<table class="">
+  <hr>
+  <tr>
+    <th> <p> <span>Title:</span> </p> </th>
+    <td> <%=  @busqueda["title"] %> </td>
+  </tr>
+  <tr>
+    <th> <p> <span>ID:</span> </p> </th>
+    <td> <%=  @busqueda["id"] %> </td>
+  </tr>
+  <tr>
+    <th> <p> <span>Done:</span> </p> </th>
+    <td> <%=  @busqueda["done"] %> </td>
+  </tr>
+  <tr>
+    <th> <p> <span>Creation date:</span> </p> </th>
+    <td> <%=  @busqueda["created_at"] %> </td>
+  </tr>
+  <tr>
+    <th> <p> <span>Updateted at:</span> </p> </th>
+    <td> <%=  @busqueda["updated_at"] %> </td>
+  </tr>
+  <tr>
+    <td class="buttons" colspan="2">
+      <br>
+      <form action="/complete?id=<%= @busqueda['id'] %>" method="post">
+        <!-- <input type="hidden" name="_method" value="DELETE"> -->
+        <input type="submit" value="Complete task" class="btn btn-outline-warning">
+      </form>
+      <form action="/delete?id=<%= @busqueda['id'] %>" method="post">
+        <!-- <input type="hidden" name="_method" value="DELETE"> -->
+        <input type="submit" value="Delete task" class="btn btn-outline-warning">
+      </form>
+    </td>
+  </tr>
+</table>
 
 <form class="" action="/" method="get">
   <input type="submit" name="" value="Volver">

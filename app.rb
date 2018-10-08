@@ -4,7 +4,7 @@ require "httparty"
 # require "pry-nav"
 
 
-get '/' do
+get '/?' do
   @tareas = Tarea.all
   erb :index
 end
@@ -28,8 +28,4 @@ end
 post '/delete' do
   Tarea.destroy(params[:id].to_i)
   redirect '/'
-end
-
-delete '/' do
-
 end

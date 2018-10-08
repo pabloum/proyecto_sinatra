@@ -25,7 +25,10 @@ hr {
   border-color: white;
 }
 
-button {
-  float: right;
-  margin-right: 20px;
+form {
+  display: inline-block;
+}
+
+.buttons {
+  text-align: right;
 }
