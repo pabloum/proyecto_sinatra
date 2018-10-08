@@ -1,72 +1,132 @@
 
-<h1>Hola! Bienvenido a tu lista de tareas. </h1>
+<h1>Hello! Welcome to your To-Do list. </h1>
 
 
-<h2>Estas son tus tareas completadas</h2>
 
-<% @tareas.each do |i| %>
-  <% if i["done"] == true %>
-    <% id = i["id"]  %>
-    <% title = i["title"]  %>
-    <% done = i["done"] %>
-    <% created_at = i["created_at"] %>
-    <% updated_at = i["updated_at"] %>
-    <%= "Título: #{title}" %>
-    <br>
-    <%= "ID: #{id}" %>
-    <br>
-    <%= "Estado: #{done}" %>
-    <br>
-    <%= "Fecha creación: #{created_at}" %>
-    <br>
-    <%= "Fecha de actualización: #{updated_at}" %>
-    <br>
-    <br>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <p><strong>¿Qué desea hacer?</strong></p>
+
+      <form class="" action="/create" method="post">
+        <input type="text" name="titulo" placeholder="Titulo de la nueva tarea">
+        <input type="submit" name="" value="Crear tarea">
+      </form>
+
+      <form class="" action="/find" method="post">
+        <input type="text" name="id" placeholder="id de la tarea a buscar">
+        <input type="submit" name="" value="Buscar tarea">
+      </form>
+
+      <form class="" action="/complete" method="post">
+        <input type="text" name="id" placeholder="id de la tarea a terminar">
+        <input type="submit" name="" value="Completar tarea">
+      </form>
 
 
-<h2>Estas son tus tareas por completar</h2>
+      <form class="" action="/delete" method="post">
+        <input type="text" name="id" placeholder="id de la tarea a eliminar">
+        <input type="submit" name="" value="Borrar tarea">
+      </form>
+    </div>
+    <div class="col-8">
+      <div class="row">
+        <div class="col">
+          <h2>To do </h2>
+              <% @tareas.each do |tarea| %>
+                <table class="">
+                  <% if tarea["done"]==false %>
+                  <hr>
+                  <tr>
+                    <th> <p> <span>Title:</span> </p> </th>
+                    <td> <%=  tarea["title"] %> </td>
+                  </tr>
+                  <tr>
+                    <th> <p> <span>ID:</span> </p> </th>
+                    <td> <%=  tarea["id"] %> </td>
+                  </tr>
+                  <tr>
+                    <th> <p> <span>Done:</span> </p> </th>
+                    <td> <%=  tarea["done"] %> </td>
+                  </tr>
+                  <tr>
+                    <th> <p> <span>Creation date:</span> </p> </th>
+                    <td> <%=  tarea["created_at"] %> </td>
+                  </tr>
+                  <tr>
+                    <th> <p> <span>Updateted at:</span> </p> </th>
+                    <td> <%=  tarea["updated_at"] %> </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>
+                      <button type="button" class="btn btn-outline-warning" name="button">Done</button>
+                      <button type="button" class="btn btn-outline-warning" name="button">Delete</button>
+                      <br>
+                      <br>
+                    </td>
+                  </tr>
+                  <% end %>
+                </table>
+              <% end %>
+          <hr>
+        </div>
 
-<% @tareas.each do |i| %>
-  <% if i["done"]==false %>
-    <% id = i["id"]  %>
-    <% title = i["title"]  %>
-    <% done = i["done"] %>
-    <% created_at = i["created_at"] %>
-    <% updated_at = i["updated_at"] %>
-    <%= "Título: #{title}" %>
-    <br>
-    <%= "ID: #{id}" %>
-    <br>
-    <%= "Estado: #{done}" %>
-    <br>
-    <%= "Fecha creación: #{created_at}" %>
-    <br>
-    <%= "Fecha de actualización: #{updated_at}" %>
-    <br>
-    <br>
-  <% end %>
-<% end %>
+        <div class="col">
+          <h2>Done</h2>
+          <% @tareas.each do |tarea| %>
+            <table class="">
+              <% if tarea["done"]==false %>
+              <hr>
+              <tr>
+                <th> <p> <span>Title:</span> </p> </th>
+                <td> <%=  tarea["title"] %> </td>
+              </tr>
+              <tr>
+                <th> <p> <span>ID:</span> </p> </th>
+                <td> <%=  tarea["id"] %> </td>
+              </tr>
+              <tr>
+                <th> <p> <span>Done:</span> </p> </th>
+                <td> <%=  tarea["done"] %> </td>
+              </tr>
+              <tr>
+                <th> <p> <span>Creation date:</span> </p> </th>
+                <td> <%=  tarea["created_at"] %> </td>
+              </tr>
+              <tr>
+                <th> <p> <span>Updateted at:</span> </p> </th>
+                <td> <%=  tarea["updated_at"] %> </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <button type="button" class="btn btn-outline-warning" name="button">Done</button>
+                  <button type="button" class="btn btn-outline-warning" name="button">Delete</button>
+                  <br>
+                  <br>
+                </td>
+              </tr>
+              <% end %>
+            </table>
+          <% end %>
+          <!-- <% @tareas.each do |tarea| %>
+            <% if tarea["done"] == true %>
+              <hr>
+              <p> <span>Title:</span> <%=  tarea["title"] %></p>
+              <p> <span>ID:</span> <%= tarea["id"] %></p>
+              <p> <span>Estado:</span> <%= tarea["done"] %></p>
+              <p> <span>Creation date:</span> <%= tarea["created_at"] %></p>
+              <p> <span>Updateted at:</span> <%= tarea["updated_at"] %></p>
 
-<p><strong>¿Qué desea hacer?</strong></p>
-
-<form class="" action="/create" method="post">
-  <input type="text" name="titulo" placeholder="Titulo de la nueva tarea">
-  <input type="submit" name="" value="Crear tarea">
-</form>
-
-<form class="" action="/complete" method="post">
-  <input type="text" name="id" placeholder="id de la tarea a terminar">
-  <input type="submit" name="" value="Completar tarea">
-</form>
-
-<form class="" action="/find" method="post">
-  <input type="text" name="id" placeholder="id de la tarea a buscar">
-  <input type="submit" name="" value="Buscar tarea">
-</form>
-
-<form class="" action="/delete" method="post">
-  <input type="text" name="id" placeholder="id de la tarea a eliminar">
-  <input type="submit" name="" value="Borrar tarea">
-</form>
+              <button type="button" class="btn btn-outline-warning" name="button">Done</button>
+              <button type="button" class="btn btn-outline-warning" name="button">Delete</button>
+              <br><br>
+            <% end %>
+          <% end %> -->
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

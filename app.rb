@@ -1,7 +1,7 @@
 require "sinatra"
 require "make_todo"
 require "httparty"
-require "pry-nav"
+# require "pry-nav"
 
 
 get '/' do
