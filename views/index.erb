@@ -23,7 +23,6 @@
         <input type="submit" name="" value="Completar tarea">
       </form>
 
-
       <form class="" action="/delete" method="post">
         <input type="text" name="id" placeholder="id de la tarea a eliminar">
         <input type="submit" name="" value="Borrar tarea">
@@ -60,8 +59,8 @@
                   <tr>
                     <td></td>
                     <td>
-                      <button type="button" class="btn btn-outline-warning" name="button">Done</button>
                       <button type="button" class="btn btn-outline-warning" name="button">Delete</button>
+                      <button type="button" class="btn btn-outline-warning" name="button">Complete</button>
                       <br>
                       <br>
                     </td>
@@ -74,56 +73,42 @@
 
         <div class="col">
           <h2>Done</h2>
-          <% @tareas.each do |tarea| %>
-            <table class="">
-              <% if tarea["done"]==false %>
-              <hr>
-              <tr>
-                <th> <p> <span>Title:</span> </p> </th>
-                <td> <%=  tarea["title"] %> </td>
-              </tr>
-              <tr>
-                <th> <p> <span>ID:</span> </p> </th>
-                <td> <%=  tarea["id"] %> </td>
-              </tr>
-              <tr>
-                <th> <p> <span>Done:</span> </p> </th>
-                <td> <%=  tarea["done"] %> </td>
-              </tr>
-              <tr>
-                <th> <p> <span>Creation date:</span> </p> </th>
-                <td> <%=  tarea["created_at"] %> </td>
-              </tr>
-              <tr>
-                <th> <p> <span>Updateted at:</span> </p> </th>
-                <td> <%=  tarea["updated_at"] %> </td>
-              </tr>
-              <tr>
-                <td></td>
-                <td>
-                  <button type="button" class="btn btn-outline-warning" name="button">Done</button>
-                  <button type="button" class="btn btn-outline-warning" name="button">Delete</button>
-                  <br>
-                  <br>
-                </td>
-              </tr>
-              <% end %>
-            </table>
-          <% end %>
-          <!-- <% @tareas.each do |tarea| %>
-            <% if tarea["done"] == true %>
-              <hr>
-              <p> <span>Title:</span> <%=  tarea["title"] %></p>
-              <p> <span>ID:</span> <%= tarea["id"] %></p>
-              <p> <span>Estado:</span> <%= tarea["done"] %></p>
-              <p> <span>Creation date:</span> <%= tarea["created_at"] %></p>
-              <p> <span>Updateted at:</span> <%= tarea["updated_at"] %></p>
-
-              <button type="button" class="btn btn-outline-warning" name="button">Done</button>
-              <button type="button" class="btn btn-outline-warning" name="button">Delete</button>
-              <br><br>
+            <% @tareas.each do |tarea| %>
+              <table class="">
+                <% if tarea["done"]==true %>
+                <hr>
+                <tr>
+                  <th> <p> <span>Title:</span> </p> </th>
+                  <td> <%=  tarea["title"] %> </td>
+                </tr>
+                <tr>
+                  <th> <p> <span>ID:</span> </p> </th>
+                  <td> <%=  tarea["id"] %> </td>
+                </tr>
+                <tr>
+                  <th> <p> <span>Done:</span> </p> </th>
+                  <td> <%=  tarea["done"] %> </td>
+                </tr>
+                <tr>
+                  <th> <p> <span>Creation date:</span> </p> </th>
+                  <td> <%=  tarea["created_at"] %> </td>
+                </tr>
+                <tr>
+                  <th> <p> <span>Updateted at:</span> </p> </th>
+                  <td> <%=  tarea["updated_at"] %> </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
+                    <button type="button" class="btn btn-outline-warning" name="button">Delete</button>
+                    <button type="button" class="btn btn-outline-warning" name="button">Complete</button>
+                    <br>
+                    <br>
+                  </td>
+                </tr>
+                <% end %>
+              </table>
             <% end %>
-          <% end %> -->
           <hr>
         </div>
       </div>
